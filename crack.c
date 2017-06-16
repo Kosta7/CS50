@@ -40,6 +40,7 @@ int main (int argc, string argv[])
     
     bool equal;                                 // true if the given hashed password is equal to an element in a following enumeration
     string hashed;                              // string where hashed passwords will be placed in
+    char salt[2] = {argv[1][0], argv[1][1]};    // defining 'salt' argument in the following crypt function
     for (int length = 1; length <= M; length++) // length is the length of the enumerated passwords
     {
         int total_num = pow(2 * N, length);     // total_num is the total number of enumerated passwords of a certain length
@@ -47,7 +48,7 @@ int main (int argc, string argv[])
         for (int x = 0; x < total_num; x++)     // word[x] is a x'th character of an enumerated password
         {
             word_forming(x, length - 1, word);  // calling a function that forms a password
-            hashed = crypt(word, "50");
+            hashed = crypt(word, salt);         // encrypting a password
             equal = true;
             for (int j = 0; j < 13; j++)        // enumerating characters of the formed password
             {
