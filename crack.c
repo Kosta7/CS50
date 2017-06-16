@@ -2,15 +2,15 @@
 clang -ggdb3 -O0 -std=c11 -Wall -Werror -Wshadow {name.c} -lcrypt -lcs50 -lm -o {name}
 */
 
-#define _XOPEN_SOURCE // for crypt function
-#include <unistd.h> // for crypt function
+#define _XOPEN_SOURCE   // for crypt function
+#include <unistd.h>     // for crypt function
 
-#include <stdio.h> // printf();
-#include <cs50.h> // for string variables
-#include <math.h> // pow();
+#include <stdio.h>      // printf();
+#include <cs50.h>       // for string variables
+#include <math.h>       // pow();
 
-#define N 26 // latin alphabet length
-#define M 4 // max password length
+#define N 26            // latin alphabet length
+#define M 4             // max password length
 
 void word_forming (int x, int m, char s[]);
 char num_to_char(int k);
@@ -18,7 +18,7 @@ char num_to_char(int k);
 // cracks up-to-4-alphabetical-characters passwords using DES-based algorithm
 int main (int argc, string argv[])
 {
-    if (argc != 2) // checking if there're only two arguments
+    if (argc != 2)                              // checking if there're only two arguments
     {
         printf("correct password required\n");
         return 1;
