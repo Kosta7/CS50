@@ -1,8 +1,8 @@
-#include <stdio.h>		// printf();
-#include <cs50.h>		// get_char();
-#include <string.h>		// strlen();
-#include <ctype.h>		// isalpha(); isupper(); islower(); toupper(); tolower();
-#define N 26			// alphabet length
+#include <stdio.h>	// printf();
+#include <cs50.h>	// get_char();
+#include <string.h>	// strlen();
+#include <ctype.h>	// isalpha(); isupper(); islower(); toupper(); tolower();
+#define N 26		// alphabet length
 
 // encrypting messages using Vigenere’s cipher
 // the first argument is keyword
@@ -13,9 +13,9 @@ int main (int argc, string argv[])
         printf("keyword needed\n");
         return 1;
     }
-    for (int j = 0, n = strlen(argv[1]); j < n; j++)							// iterate over characters in argv[1]
+    for (int j = 0, n = strlen(argv[1]); j < n; j++)	// iterate over characters in argv[1]
     {
-        if (isalpha(argv[1][j]) == false)	// check if character non-alphabetical
+        if (isalpha(argv[1][j]) == false)	            // check if character non-alphabetical
         {
             printf("alphabetical keyword needed\n");
             return 1;
