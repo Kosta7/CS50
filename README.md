@@ -1,3 +1,2 @@
-# CS50\n
-Harvard Computer science course\n
-My solutions to some problem sets
+# CS50
+Harvard Computer science course. My solutions to some problem sets
