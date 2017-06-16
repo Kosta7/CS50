@@ -1,3 +1,7 @@
+/* command:
+clang -ggdb3 -O0 -std=c11 -Wall -Werror -Wshadow {name.c} -lcrypt -lcs50 -lm -o {name}
+*/
+
 #define _XOPEN_SOURCE // for crypt function
 #include <unistd.h> // for crypt function
 
