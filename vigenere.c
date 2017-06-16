@@ -1,8 +1,8 @@
-#include <stdio.h> // printf();
-#include <cs50.h> // get_char();
-#include <string.h> // strlen();
-#include <ctype.h> // isalpha(); isupper(); islower(); toupper(); tolower();
-#define N 26 // alphabet length
+#include <stdio.h>		// printf();
+#include <cs50.h>		// get_char();
+#include <string.h>		// strlen();
+#include <ctype.h>		// isalpha(); isupper(); islower(); toupper(); tolower();
+#define N 26			// alphabet length
 
 // encrypting messages using Vigenere’s cipher
 // the first argument is keyword
@@ -13,11 +13,9 @@ int main (int argc, string argv[])
         printf("keyword needed\n");
         return 1;
     }
-    // iterate over characters in argv[1]
-    for (int j = 0, n = strlen(argv[1]); j < n; j++)
+    for (int j = 0, n = strlen(argv[1]); j < n; j++)							// iterate over characters in argv[1]
     {
-        // check if character non-alphabetical
-        if (isalpha(argv[1][j]) == false)
+        if (isalpha(argv[1][j]) == false)	// check if character non-alphabetical
         {
             printf("alphabetical keyword needed\n");
             return 1;
@@ -25,35 +23,25 @@ int main (int argc, string argv[])
     }
     
     printf("plaintext: ");
-    // getting plaintext array from user
-    string s = get_string();
+    string s = get_string();				// getting plaintext array from user
     printf("ciphertext: ");
-    // iterate over characters in plaintext
-    for (int i = 0, j = 0, n = strlen(s), m = strlen(argv[1]); i < n; i++)
+    for (int i = 0, j = 0, n = strlen(s), m = strlen(argv[1]); i < n; i++)		// iterate over characters in plaintext
     {
-        // check if character alphabetical
-        if (isalpha(s[i]))
+        if (isalpha(s[i]))					// check if character alphabetical
         {
-            // check if character uppercase
-            if (isupper(s[i]))
+            if (isupper(s[i]))				// check if character uppercase
             {
-                // print uppercase character encrypted using current key
-                printf("%c", 'A' + (s[i] + toupper(argv[1][j]) - 2*'A') % N);
+                printf("%c", 'A' + (s[i] + toupper(argv[1][j]) - 2*'A') % N);	// print uppercase character encrypted using current key
             }
-            // otherwise character is lowercase
-            else
+            else							// otherwise character is lowercase
             {
-                // print lowercase character encrypted using current key
-                printf("%c", 'a' + (s[i] + tolower(argv[1][j]) - 2*'a') % N);
+                printf("%c", 'a' + (s[i] + tolower(argv[1][j]) - 2*'a') % N);	// print lowercase character encrypted using current key
             }
-            // shift to the next key
-            j = (j + 1) % m;
+            j = (j + 1) % m;				// shift to the next key
         }
-        // otherwise a character is non-alphabetical
-        else
+        else								// otherwise a character is non-alphabetical
         {
-            // print a character unchanged
-            printf("%c", s[i]);
+            printf("%c", s[i]);				// print a character unchanged
         }
     }
     printf("\n");
