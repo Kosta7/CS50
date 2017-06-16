@@ -23,25 +23,25 @@ int main (int argc, string argv[])
     }
     
     printf("plaintext: ");
-    string s = get_string();				// getting plaintext array from user
+    string s = get_string();	// getting plaintext array from user
     printf("ciphertext: ");
-    for (int i = 0, j = 0, n = strlen(s), m = strlen(argv[1]); i < n; i++)		// iterate over characters in plaintext
+    for (int i = 0, j = 0, n = strlen(s), m = strlen(argv[1]); i < n; i++)	// iterate over characters in plaintext
     {
-        if (isalpha(s[i]))					// check if character alphabetical
+        if (isalpha(s[i]))	// check if character alphabetical
         {
-            if (isupper(s[i]))				// check if character uppercase
+            if (isupper(s[i]))	// check if character uppercase
             {
                 printf("%c", 'A' + (s[i] + toupper(argv[1][j]) - 2*'A') % N);	// print uppercase character encrypted using current key
             }
-            else							// otherwise character is lowercase
+            else	// otherwise character is lowercase
             {
                 printf("%c", 'a' + (s[i] + tolower(argv[1][j]) - 2*'a') % N);	// print lowercase character encrypted using current key
             }
-            j = (j + 1) % m;				// shift to the next key
+            j = (j + 1) % m;	// shift to the next key
         }
-        else								// otherwise a character is non-alphabetical
+        else	// otherwise a character is non-alphabetical
         {
-            printf("%c", s[i]);				// print a character unchanged
+            printf("%c", s[i]);		// print a character unchanged
         }
     }
     printf("\n");
